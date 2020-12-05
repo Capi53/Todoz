@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> sample_boards </title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <body>
+        <header>
+        <div class="header">
+            <div class="header_left">
+                <div>
+                    <button class="to_menu">
+                        <span class="menu_icon">
+                            メニューアイコン
+                        </span>
+                    </button>
+                </div>
+                <a aria-label="back to home" href="/">homeのicon</a>
+                <button class="to_boards">
+                    <span class="boards_icon">
+                        ボードアイコン
+                    </span>
+                    <span>
+                        Boards
+                    </span>
+                </button>
+            </div>
+            <div class="header_center">
+                <span class="app_icon">Todoz</span>
+            </div>
+            <div class="header_right">
+                <button class="ereate_button">
+                    [+icon]
+                </button>
+                <button class="update_info_button">
+                    [(i)icon]
+                </button>
+                <button class="notification_button">
+                    [bell icon]
+                </button>
+                <button class="user_info_button">
+                    [user icon]
+                </button>                                                
+            </div>
+        </div>
+        </header>
+        <%= yield %>
+    </body>
+</html>

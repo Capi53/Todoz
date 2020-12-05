@@ -1,0 +1,38 @@
+header {
+    width: 100%;
+    float: left;
+    display: inline;
+    background-color: antiquewhite;
+}
+
+.header {
+    width: 100%;
+    margin: 0;
+    float: left;
+    display: flex;
+    background-color: antiquewhite;
+}
+
+.header_left {
+    padding:0 30% 0 0;
+    text-align: center;
+    float: left;
+    display: flex;
+}
+
+.header_right {
+    padding:0 0 0 30%;
+    float: left;
+    display: flex;
+}
+
+.header_center {
+    padding: 0;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+body {
+    background-color: azure;
+}
