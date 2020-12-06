@@ -28,6 +28,13 @@ $(document).on("click", ".adder-card", function () {
     if (isNaN(num)){
         num = 0;
     };
-    var html = '<div class="card" id="card_'+(num+1)+'"><p>card' + (num + 1) + '</p></div>';
+    var html = '<div class="card" id="card_'+(num+1)+'" onclick="update_card(this.id)"><p>card' + (num + 1) + '</p></div>';
     $('#cardadd_'+card_id_num).before(html);
 });
+
+function update_card(card_id){
+    var card_contents = document.getElementById(card_id);
+    console.log(card_contents);
+    card_contents.innerHTML = '<h1>こんにちは～～</h1>';
+    return card_contents;
+};
