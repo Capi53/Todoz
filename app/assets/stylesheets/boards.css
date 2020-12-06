@@ -36,3 +36,13 @@ header {
 body {
     background-color: azure;
 }
+
+.user_info_button {
+    size: 10px;
+}
+
+.user_icon {
+    width: 60%;
+    height: auto;
+    border-radius: 100%;
+}
