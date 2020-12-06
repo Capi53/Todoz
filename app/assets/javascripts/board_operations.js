@@ -9,7 +9,25 @@ $(document).on("click", ".adder-list", function () {
     //     var num = Number($(this).text().replace("list", ""));
     // };
     // $(".btn-area").append(html);
-    var num = $('.list').length;
-    var html = '<div class="list">list' + (num + 1) + '</div>';
+    var num = $('.list ').length;
+    var html = '<div class="list" id=list_'+(num + 1)+'><p>list' + (num + 1) + '</p><button class="add-btn adder-card" id="cardadd_'+(num + 1)+'">add card</button></div>';
     $('.adder-list').before(html);
+});
+
+$(document).on("click", ".adder-card", function () {
+    // var num = Number($(this).text().replace("+add list", ""));
+    // if (num==NaN){
+    //     var num = Number($(this).text().replace("list", ""));
+    // };
+    // $(".btn-area").append(html);
+    var card_id_num = Number($(this).attr('id').replace("cardadd_", ""));
+    console.log(card_id_num);
+    // var a = card_id.text().replace("cardadd_", "");
+    var num = $('.card').length;
+    // var num = Number($(this).text().replace("card_id", ""));
+    if (isNaN(num)){
+        num = 0;
+    };
+    var html = '<div class="card" id="card_'+(num+1)+'"><p>card' + (num + 1) + '</p></div>';
+    $('#cardadd_'+card_id_num).before(html);
 });
