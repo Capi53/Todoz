@@ -46,3 +46,21 @@ body {
     height: auto;
     border-radius: 100%;
 }
+
+.parent a{
+    position: absolute; /* ② */
+    top: 0; /* ③ */
+    left: 0; /* ④ */
+    width: 100%; /* ⑤ */
+    height: 100%; /* ⑥ */
+}
+
+.lists-area {
+    display: flex;
+}
+
+.list {
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border: 1px solid #333333;
+}

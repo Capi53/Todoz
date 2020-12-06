@@ -3,13 +3,13 @@
 //     $(elid).append('div');
 
 // });
-$(document).on("click", ".add-btn", function () {
+$(document).on("click", ".adder-list", function () {
     // var num = Number($(this).text().replace("+add list", ""));
     // if (num==NaN){
     //     var num = Number($(this).text().replace("list", ""));
     // };
     // $(".btn-area").append(html);
-    var num = $('.add-btn').length;
-    var html = '<button type="button" class="add-btn">list' + (num + 1) + '</button>';
-    $('.adder_btn').before(html);
+    var num = $('.list').length;
+    var html = '<div class="list">list' + (num + 1) + '</div>';
+    $('.adder-list').before(html);
 });
