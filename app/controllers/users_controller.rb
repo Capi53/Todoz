@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @usericon = "/assets/images/Todoz.png"
     render 'new'
   end
 

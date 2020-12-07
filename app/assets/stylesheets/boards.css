@@ -35,4 +35,65 @@ header {
 
 body {
     background-color: azure;
+    /* display: block; */
+}
+
+.user_info_button {
+    size: 10px;
+}
+
+.user_icon {
+    width: 60%;
+    height: auto;
+    border-radius: 100%;
+}
+
+.parent a{
+    position: absolute; /* ② */
+    top: 0; /* ③ */
+    left: 0; /* ④ */
+    width: 100%; /* ⑤ */
+    height: 100%; /* ⑥ */
+}
+
+.lists-area {
+    display: flex;
+}
+
+.lists {
+    /* display: flex; */
+    display: block;
+    /* float: left; */
+}
+
+.list {
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border: 1px solid #333333;
+}
+
+.card {
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border: 1px solid #333333;
+}
+
+.board_yield_header {
+    /* display:flex; */
+    /* float: left; */
+    /* display: inline-block; */
+    /* display: block; */
+
+}
+
+.header-item {
+    display: flex;
+    float: left;
+    width:auto;
+    margin:1%;
+}
+
+.board-item {
+    /* display:block; */
+    float: left;
 }
