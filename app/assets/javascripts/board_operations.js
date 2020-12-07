@@ -35,6 +35,6 @@ $(document).on("click", ".adder-card", function () {
 function update_card(card_id){
     var card_contents = document.getElementById(card_id);
     console.log(card_contents);
-    card_contents.innerHTML = '<h1>こんにちは～～</h1>';
+    card_contents.innerHTML = '<div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div><a href="#"><img src="<%= image_tag \'Todoz.png\' , :class => \'user_icon\'%>" alt="ポップアップ画像"></a>';
     return card_contents;
 };
