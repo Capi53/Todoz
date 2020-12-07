@@ -3,6 +3,10 @@
 //     $(elid).append('div');
 
 // });
+
+var modalBtn = document.querySelector('.modal-btn');
+
+// リスト作成関数
 $(document).on("click", ".adder-list", function () {
     // var num = Number($(this).text().replace("+add list", ""));
     // if (num==NaN){
@@ -14,6 +18,7 @@ $(document).on("click", ".adder-list", function () {
     $('.adder-list').before(html);
 });
 
+// カード作成関数
 $(document).on("click", ".adder-card", function () {
     // var num = Number($(this).text().replace("+add list", ""));
     // if (num==NaN){
@@ -28,13 +33,48 @@ $(document).on("click", ".adder-card", function () {
     if (isNaN(num)){
         num = 0;
     };
-    var html = '<div class="card" id="card_'+(num+1)+'" onclick="update_card(this.id)"><p>card' + (num + 1) + '</p></div>';
+    // var html = '<div class="card" id="card_'+(num+1)+'" onclick="update_card(this.id)"><%= link_to "card' + (num + 1) + '", "/card/" %></div>';
+    // var html = '<div class="card" id="card_'+(num+1)+'" onclick="update_card(this.id)"><a href="#">card' + (num + 1) + '</a></div>';
+    var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#">card' + (num + 1) + '</a><button class="modal-btn" onclick="show_modal()">modal</button></div>';
     $('#cardadd_'+card_id_num).before(html);
 });
 
+
+// カード内容編集関数
 function update_card(card_id){
     var card_contents = document.getElementById(card_id);
     console.log(card_contents);
     card_contents.innerHTML = '<div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div><a href="#"><img src="<%= image_tag \'Todoz.png\' , :class => \'user_icon\'%>" alt="ポップアップ画像"></a>';
     return card_contents;
+};
+
+// assets/javascripts/posts/modal.js
+$(document).on('turbolinks:load', function() {
+    // when a post is clicked, show its full content in a modal window
+    $("body").on( "click", ".single-post-card, .single-post-list", function() {
+        var posted_by = $(this).find('.post-content .posted-by').html();
+        var post_heading = $(this).find('.post-content h3').html();
+        var post_content = $(this).find('.post-content p').html();
+        var interested = $(this).find('.post-content .interested').attr('href');
+        $('.modal-header .posted-by').text(posted_by);
+        $('.loaded-data h3').text(post_heading);
+        $('.loaded-data p').text(post_content);
+        $('.loaded-data .interested a').attr('href', interested);
+        $('.myModal').modal('show');
+    });
+});
+
+// var modalBtn = document.querySelector('.modal-btn');
+// console.log(modalBtn);
+// var modalBg = document.querySelector('.modal-bg');
+// modalBtn.addEventListener('click', function(){
+//     modalBg.calssList.add('bg-active');
+// });
+
+function show_modal(){
+    $('.modal-bg').addClass('bg-active');
+};
+
+function close_modal(){
+    $('.modal-bg').removeClass('bg-active');
 };
