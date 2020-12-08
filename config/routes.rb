@@ -5,5 +5,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # get '/users/:id', to:'users#show'
   # root "users#show"
+
+  #ユーザーのルーティング
   get '/user/:id' => 'users#show'
+
+  #ボードのルーティング
+  get '/board/:id' => 'boards#show'
 end

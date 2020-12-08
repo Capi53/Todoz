@@ -94,6 +94,7 @@ function close_modal(){
     $('.modal-bg').removeClass('bg-active');
     var change_id = $('.card-name-modal').attr('id');
     $('.card-name-modal').removeAttr('id', change_id);
+    $('.card-name-modal').html();
 };
 
 function update_card_name(){
@@ -103,5 +104,6 @@ function update_card_name(){
     // $('.card-name-modal').text(newname);
     var change_id = $('.card-name-modal').attr('id');
     $("#"+change_id).text(newname);
+    
     close_modal();
 };
