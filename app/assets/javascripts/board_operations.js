@@ -35,7 +35,8 @@ $(document).on("click", ".adder-card", function () {
     };
     // var html = '<div class="card" id="card_'+(num+1)+'" onclick="update_card(this.id)"><%= link_to "card' + (num + 1) + '", "/card/" %></div>';
     // var html = '<div class="card" id="card_'+(num+1)+'" onclick="update_card(this.id)"><a href="#">card' + (num + 1) + '</a></div>';
-    var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#">card' + (num + 1) + '</a><button class="modal-btn" onclick="show_modal()">modal</button></div>';
+    var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#" class="card-name" id ="card-name-'+(num+1)+'">card' + (num + 1) + '</a><button class="modal-btn" id ="button-id-'+(num+1)+'" onclick="show_modal(\'card-name-'+(num+1)+'\')">modal</button></div>';
+    // var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#" class="card-name" id ="card-name-'+(num+1)+' onclick="show_modal(card-name-'+(num+1)+')">card' + (num + 1) + '</a></div>';
     $('#cardadd_'+card_id_num).before(html);
 });
 
@@ -71,10 +72,35 @@ $(document).on('turbolinks:load', function() {
 //     modalBg.calssList.add('bg-active');
 // });
 
-function show_modal(){
+function show_modal(b_id){
+    // var thisid = $(b_id).siblings('.card-name').attr('id');
+    console.log(b_id);
+    var cardname = $('#'+b_id).val();
+    console.log(cardname);
+    $('.card-name-modal').text(cardname);
     $('.modal-bg').addClass('bg-active');
+    $('.card-name-modal').attr('id', b_id);
 };
+
+// function show_modal(a_id){
+//     var thisid = $(this).siblings('.card-name').attr('id');
+//     console.log(thisid);
+//     $('.modal-bg').addClass('bg-active');
+//     $('.card-name-modal').attr('id', thisid);
+// };
 
 function close_modal(){
     $('.modal-bg').removeClass('bg-active');
+    var change_id = $('.card-name-modal').attr('id');
+    $('.card-name-modal').removeAttr('id', change_id);
+};
+
+function update_card_name(){
+    var newname = $('#new_card_name').val();
+    // var thisid = $(this).siblings('.card-name-modal').attr('id');
+    // $('.card-name').text(newname);
+    // $('.card-name-modal').text(newname);
+    var change_id = $('.card-name-modal').attr('id');
+    $("#"+change_id).text(newname);
+    close_modal();
 };
