@@ -75,9 +75,10 @@ $(document).on('turbolinks:load', function() {
 function show_modal(b_id){
     // var thisid = $(b_id).siblings('.card-name').attr('id');
     console.log(b_id);
-    var cardname = $('#'+b_id).val();
+    var cardname = $('#'+b_id).html();
     console.log(cardname);
-    $('.card-name-modal').text(cardname);
+    // $('.card-name-modal').text('宮城Gogo');
+    $('.card-name-modal').html(cardname);
     $('.modal-bg').addClass('bg-active');
     $('.card-name-modal').attr('id', b_id);
 };
