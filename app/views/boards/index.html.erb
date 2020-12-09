@@ -24,4 +24,10 @@
 
 <br>
 
-<%= link_to 'New Board', new_board_path %>
+<!--<%= link_to 'New Board', new_board_path %>-->
+<%= link_to 'New Board', new_board_path, remote: true, class: "btn btn-lg, btn-primary" %>
+
+<script>
+$("#board-modal").html("<%= escape_javascript(render 'form') %>")
+$("#board-modal").modal("show")
+</script>

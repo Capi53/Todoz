@@ -1,7 +1,8 @@
 <div class="board-item">
     <div class='board_yield_header header-item board-item'>
         <div class="header-item">
-            <h1>Boardsname</h1>
+            <!--<h1>Boardsname</h1>-->
+            <h1> <%= @board.name %> </h1>
             <input class="board-name-input" aria-label="Boardsname" value="Boardsname">
         </div>
         <div class="header-item">
@@ -15,17 +16,22 @@
             </button>
         </div>
     </div>
-    <p>Find me in app/views/users/new.html.erb</p>
-    <p>your email:%<= @user.email %></p>
+    <!--<p>Find me in app/views/users/new.html.erb</p>-->
+    <!--<p>your email:%<= @user.email %></p>-->
+    <!--<p>your id:<%= @user.name %> </p>-->
     <div class="lists board-item">
         <div class="list_adder lists-area">
-            <% counter=0 %>
+            <% list_counter=0 %>
+            <% card_counter=0 %>
             <% @lists.each do |list| %>
-                <div class="list" id="list_<%= counter+1 %>"><p><%= list.name %></p><button class="add-btn adder-card" id="cardadd_<%= counter+1 %>">add card</button></div>
-                <% counter += 1%>
+                <div class="list" id="list_<%= list_counter+1 %>"><p><%= list.name %></p>
+                    <% @cards.each do |card| %>
+                        <div class="card" id="card_<%= card_counter+1 %>" ><a href="#" class="card-name" id ="card-name-<%= card_counter+1 %>"> <%= card.name %> </a><button class="modal-btn" id ="button-id-<%= card_counter +1 %>" onclick="show_modal('card-name-<%= card_counter+1 %>')">Rename</button></div>
+                    <% end %>
+                <button class="add-btn adder-card" id="cardadd_<%= list_counter+1 %>">add card</button></div>
+                <% list_counter += 1%>
             <% end %>
             <button class="add-btn adder-list">+add list1</button>
-            %<= render 'boards/modal' %>
         </div>
     </div>
     <div class="modal-bg">

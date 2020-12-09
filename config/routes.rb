@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   get '/user/:id' => 'users#show'
 
   #ボードのルーティング
-  get '/board/:id' => 'boards#show'
+  # get '/boards/index' => 'boards#index'
+
+  get '/boards/detail/:id' => 'boards#show'
+
+  get '/boards/new' => 'boards#new'
 end
