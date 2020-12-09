@@ -11,8 +11,9 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
     @usericon = "/assets/images/Todoz.png"
+    @lists = List.where(board_id: params[:id])
     render 'show'
   end
 

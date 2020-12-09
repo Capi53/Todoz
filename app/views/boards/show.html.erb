@@ -16,11 +16,16 @@
         </div>
     </div>
     <p>Find me in app/views/users/new.html.erb</p>
-    <p>your email:<%= @user.email %></p>
+    <p>your email:%<= @user.email %></p>
     <div class="lists board-item">
         <div class="list_adder lists-area">
+            <% counter=0 %>
+            <% @lists.each do |list| %>
+                <div class="list" id="list_<%= counter+1 %>"><p><%= list.name %></p><button class="add-btn adder-card" id="cardadd_<%= counter+1 %>">add card</button></div>
+                <% counter += 1%>
+            <% end %>
             <button class="add-btn adder-list">+add list1</button>
-            <= render 'boards/modal' %>
+            %<= render 'boards/modal' %>
         </div>
     </div>
     <div class="modal-bg">
