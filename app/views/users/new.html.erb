@@ -20,6 +20,16 @@
     <div class="lists board-item">
         <div class="list_adder lists-area">
             <button class="add-btn adder-list">+add list1</button>
+            <= render 'boards/modal' %>
+        </div>
+    </div>
+    <div class="modal-bg">
+        <div class="modal">
+            <h1 class="card-name-modal">カードの名前</h1>
+            <label for="card_name">Name: </label>
+            <input type="text" id="new_card_name" placeholder="new card name">
+            <button onclick="update_card_name() ">Sub</button>
+            <span class="modal-close" onclick="close_modal()"> X </span>
         </div>
     </div>
 </div>

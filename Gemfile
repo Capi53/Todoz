@@ -66,3 +66,6 @@ gem 'devise'
 
 #add jquery
 gem 'jquery-rails'
+
+#add bootstrap for modal
+gem 'bootstrap-sass'
