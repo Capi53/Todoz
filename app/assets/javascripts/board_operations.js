@@ -35,7 +35,7 @@ $(document).on("click", ".adder-card", function () {
     };
     // var html = '<div class="card" id="card_'+(num+1)+'" onclick="update_card(this.id)"><%= link_to "card' + (num + 1) + '", "/card/" %></div>';
     // var html = '<div class="card" id="card_'+(num+1)+'" onclick="update_card(this.id)"><a href="#">card' + (num + 1) + '</a></div>';
-    var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#" class="card-name" id ="card-name-'+(num+1)+'">card' + (num + 1) + '</a><button class="modal-btn" id ="button-id-'+(num+1)+'" onclick="show_modal(\'card-name-'+(num+1)+'\')">modal</button></div>';
+    var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#" class="card-name" id ="card-name-'+(num+1)+'">card' + (num + 1) + '</a><button class="modal-btn" id ="button-id-'+(num+1)+'" onclick="show_modal(\'card-name-'+(num+1)+'\')">Rename</button></div>';
     // var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#" class="card-name" id ="card-name-'+(num+1)+' onclick="show_modal(card-name-'+(num+1)+')">card' + (num + 1) + '</a></div>';
     $('#cardadd_'+card_id_num).before(html);
 });

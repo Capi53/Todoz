@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
+  layout "boards_header"
 
   # GET /boards
   # GET /boards.json
@@ -10,8 +11,9 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
-    # @usericon = "/assets/images/Todoz.png"
-    # render 'show'
+    @user = User.find(params[:id])
+    @usericon = "/assets/images/Todoz.png"
+    render 'show'
   end
 
   # GET /boards/new
