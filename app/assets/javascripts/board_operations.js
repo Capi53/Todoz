@@ -119,3 +119,8 @@ $('#card_name').keypress(function(e){
         $(this).closest('form').submit();
     }
 });
+
+$('#card_name_form').click(function() {
+    var list_id = 1;
+    $('#card_add_form').after('<%= form.hidden_field :list_id , value: '+list_id+', readonly: true %>');
+});

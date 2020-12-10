@@ -1,0 +1,1 @@
+$('.field card').html('<%= form.hidden_field :list_id , value: , readonly: true %>');

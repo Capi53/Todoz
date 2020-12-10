@@ -14,6 +14,7 @@ class CardsController < ApplicationController
 
   # GET /cards/new
   def new
+    session[:return_to] ||= request.referer
     @card = Card.new
     @user = current_user
     # @list = List.find()
@@ -27,17 +28,20 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /cards.json
   def create
-    @card = Card.new(name: params[:name], created_by: current_user.id, list_id:params[:list_id])
-
-    respond_to do |format|
-      if @card.save
-        format.html { redirect_to @card, notice: 'Card was successfully created.' }
-        format.json { render :show, status: :created, location: @card }
-      else
-        format.html { render :new }
-        format.json { render json: @card.errors, status: :unprocessable_entity }
-      end
+    @card = Card.new(name: params[:card][:name], created_by: current_user.id, list_id:Integer(params[:card][:list_id]))
+    # respond_to do |format|
+    if @card.save
+      redirect_to session.delete(:return_to)
     end
+    # respond_to do |format|
+    #   if @card.save
+    #     format.html { redirect_to @card, notice: 'Card was successfully created.' }
+    #     format.json { render :show, status: :created, location: @card }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @card.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /cards/1

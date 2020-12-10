@@ -1,4 +1,4 @@
-<%= form_with(model: @card, local: true) do |form| %>
+<%= form_with(model: @card, local: true, url: "/cards", method: "post") do |form| %>
   <% if @card.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@card.errors.count, "error") %> prohibited this board from being saved:</h2>
@@ -10,10 +10,10 @@
       </ul>
     </div>
   <% end %>
-  <div class="field card">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-    <!-- %<= form.text_field :list_id , value: @card.list.id, readonly: true, class: "unvisible" %> -->
+  <div class="field card" >
+    <%= form.label :name  %>
+    <%= form.text_field :name ,id: "card_name_form" %>
+    <%= form.hidden_field :list_id , :value => 1, readonly: true %>
     </div>
   </div>
 <% end %>
