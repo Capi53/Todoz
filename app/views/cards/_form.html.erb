@@ -1,0 +1,27 @@
+<div class="modal-dialog modal-bg bg-active" role="document">
+  <div class="modal-content modal">
+    <%= form_with(model: @card, local: true) do |form| %>
+      <% if @card.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@card.errors.count, "error") %> prohibited this board from being saved:</h2>
+
+          <ul>
+          <% @card.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <span class="modal-close" onclick="close_modal()"> X </span>
+      <div class="field">
+        <h1>New Card</h1>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
