@@ -20,11 +20,6 @@ $(document).on("click", ".adder-list", function () {
 
 // カード作成関数
 $(document).on("click", ".adder-card", function () {
-    // var num = Number($(this).text().replace("+add list", ""));
-    // if (num==NaN){
-    //     var num = Number($(this).text().replace("list", ""));
-    // };
-    // $(".btn-area").append(html);
     var card_id_num = Number($(this).attr('id').replace("cardadd_", ""));
     console.log(card_id_num);
     // var a = card_id.text().replace("cardadd_", "");
@@ -35,7 +30,7 @@ $(document).on("click", ".adder-card", function () {
     };
     // var html = '<div class="card" id="card_'+(num+1)+'" onclick="update_card(this.id)"><%= link_to "card' + (num + 1) + '", "/card/" %></div>';
     // var html = '<div class="card" id="card_'+(num+1)+'" onclick="update_card(this.id)"><a href="#">card' + (num + 1) + '</a></div>';
-    var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#" class="card-name" id ="card-name-'+(num+1)+'">card' + (num + 1) + '</a><button class="modal-btn" id ="button-id-'+(num+1)+'" onclick="show_modal(\'card-name-'+(num+1)+'\')">Rename</button></div>';
+    var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#" class="card-name" id ="card-name-'+(num+1)+'">card' + (num + 1) + '</a><button class="modal-btn" id ="button-id-'+(num+1)+'" onclick="show_card_modal(\'card-name-'+(num+1)+'\')">Rename</button></div>';
     // var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#" class="card-name" id ="card-name-'+(num+1)+' onclick="show_modal(card-name-'+(num+1)+')">card' + (num + 1) + '</a></div>';
     $('#cardadd_'+card_id_num).before(html);
 });
@@ -72,7 +67,7 @@ $(document).on('turbolinks:load', function() {
 //     modalBg.calssList.add('bg-active');
 // });
 
-function show_modal(b_id){
+function show_card_modal(b_id){
     // var thisid = $(b_id).siblings('.card-name').attr('id');
     console.log(b_id);
     var cardname = $('#'+b_id).html();
@@ -90,7 +85,7 @@ function show_modal(b_id){
 //     $('.card-name-modal').attr('id', thisid);
 // };
 
-function close_modal(){
+function close_card_modal(){
     $('.modal-bg').removeClass('bg-active');
     var change_id = $('.card-name-modal').attr('id');
     $('.card-name-modal').removeAttr('id', change_id);
@@ -105,5 +100,9 @@ function update_card_name(){
     var change_id = $('.card-name-modal').attr('id');
     $("#"+change_id).text(newname);
     
-    close_modal();
+    close_card_modal();
 };
+
+function show_board_modal(){
+    $('.modal-bg').addClass('bg-active');
+}

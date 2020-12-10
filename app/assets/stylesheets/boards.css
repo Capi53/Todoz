@@ -68,12 +68,14 @@ body {
 }
 
 .list {
+    width: 150px;
     padding: 10px; 
     margin-bottom: 10px; 
     border: 1px solid #333333;
 }
 
 .card {
+    width: 110px;
     padding: 10px; 
     margin-bottom: 10px; 
     border: 1px solid #333333;
