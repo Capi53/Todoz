@@ -16,6 +16,7 @@ class CardsController < ApplicationController
   def new
     @card = Card.new
     @user = current_user
+    # @list = List.find()
     @card.created_by = @user
   end
 
