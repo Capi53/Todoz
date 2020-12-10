@@ -106,3 +106,7 @@ function update_card_name(){
 function show_board_modal(){
     $('.modal-bg').addClass('bg-active');
 }
+
+function close_modal(){
+    $('.modal-bg').removeClass('bg-active');
+}
