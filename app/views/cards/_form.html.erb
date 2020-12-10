@@ -10,14 +10,9 @@
       </ul>
     </div>
   <% end %>
-  <span class="modal-close" onclick="close_modal()"> X </span>
-  <div class="field">
-    <h1>New Card</h1>
+  <div class="field card">
     <%= form.label :name %>
     <%= form.text_field :name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    </div>
   </div>
 <% end %>

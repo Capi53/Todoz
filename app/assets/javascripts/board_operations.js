@@ -111,3 +111,11 @@ function show_board_modal(){
 function close_modal(){
     $('.modal-bg').removeClass('bg-active');
 }
+
+
+//enter時に送信
+$('#card_name').keypress(function(e){
+    if(e.which == 13){
+        $(this).closest('form').submit();
+    }
+});
