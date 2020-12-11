@@ -19,6 +19,7 @@ class CardsController < ApplicationController
     @user = current_user
     # @list = List.find()
     @card.created_by = @user
+    @param_id = params[:id]
   end
 
   # GET /cards/1/edit

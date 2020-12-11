@@ -16,5 +16,7 @@ Rails.application.routes.draw do
 
   get '/boards/detail/:id' => 'boards#show'
 
-  get '/boards/new' => 'boards#new'
+  get '/boards/new/' => 'boards#new'
+
+  get '/cards/new/:id' => 'cards#new'
 end

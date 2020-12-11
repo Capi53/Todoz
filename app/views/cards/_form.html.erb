@@ -13,7 +13,7 @@
   <div class="field card" >
     <%= form.label :name  %>
     <%= form.text_field :name ,id: "card_name_form" %>
-    <%= form.hidden_field :list_id , :value => 1, readonly: true %>
+    <%= form.hidden_field :list_id , :value => @param_id, readonly: true %>
     </div>
   </div>
 <% end %>

@@ -1,2 +1,19 @@
-$("#board-modal").html("<%= escape_javascript(render 'form') %>")
-$("#board-modal").modal("show")
+// $("#board-modal").html("<%= escape_javascript(render 'form') %>");
+// $("#board-modal").modal("show");
+$("#board-modal-<%=@param_id%>").html("<%= escape_javascript(render 'form') %>");
+$("#board-modal-<%=@param_id%>").modal("show");
+console.log("<%=@param_id%>");
+
+// function a(abc){
+//     $(abc).html("<%= escape_javascript(render 'form') %>");
+//     $(abc).modal("show");
+// }
+
+// $(document).on("click", ".adder-list", function () {
+//     var num = $('.list').length;
+//     // js_to_ruby((num+1));
+//     var a_contents = `<%= link_to "Add Card", new_card_path, remote: true, class: "btn btn-lg btn-primary add-btn adder-card" ,id: "cardadd_${(num + 1)}"%>`
+//     console.log(a_contents);
+//     var html = '<div class="list" id=list_' +(num + 1)+ '><p>list' + (num + 1) + '</p><div id="board-modal' + (num + 1) + '"></div>'+a_contents;
+//     $('.adder-list').before(html);
+// });

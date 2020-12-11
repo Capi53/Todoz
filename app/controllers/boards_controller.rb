@@ -18,11 +18,8 @@ class BoardsController < ApplicationController
     @user = current_user
     @board = Board.find(params[:id])
     @lists = List.where(board_id: params[:id])
-    @cards = Card.where(list_id: params[:id])#ここはリストidからとってくるようにして．
-    # @cards_list = []
-    # @lists.each do |list|
-    #   @cards_list.push(Card.where(list_id: list))
-    # end
+    # @cards = Card.where(list_id: params[:id])#ここはリストidからとってくるようにして．
+    @cards = Card.where(list_id: @lists.ids)
     render 'show'
   end
 
