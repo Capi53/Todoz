@@ -1,1 +1,0 @@
-web: /bin/todoz-app
