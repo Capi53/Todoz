@@ -13,10 +13,8 @@
   <tbody>
     <% @boards.each do |board| %>
       <tr>
-        <td><%= board.name %></td>
-        <td><%= link_to 'Show', board %></td>
-        <td><%= link_to 'Edit', edit_board_path(board) %></td>
-        <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to board.id, board_path(board.id) %></td>
+        <td><%= link_to board.name, board_path(board.id) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +22,8 @@
 
 <br>
 
-<%= link_to 'New Board', new_board_path %>
+<!--<%= link_to 'New Board', new_board_path %>-->
+<%= link_to 'New Board', new_board_path, remote: true, class: "btn btn-lg, btn-primary" %>
+<div id="board-modal">
+</div>
+

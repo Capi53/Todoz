@@ -1,22 +1,32 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  layout "boards_header"
 
   # GET /boards
   # GET /boards.json
   def index
     @boards = Board.all
+    @board = Board.new
   end
 
   # GET /boards/1
   # GET /boards/1.json
   def show
-    # @usericon = "/assets/images/Todoz.png"
-    # render 'show'
+    # @user = User.find(params[:id])
+    @usericon = "/assets/images/Todoz.png"
+    @user = current_user
+    @board = Board.find(params[:id])
+    @lists = List.where(board_id: params[:id])
+    # @cards = Card.where(list_id: params[:id])#ここはリストidからとってくるようにして．
+    @cards = Card.where(list_id: @lists.ids)
+    render 'show'
   end
 
   # GET /boards/new
   def new
     @board = Board.new
+    # redirect_to 'show#'
   end
 
   # GET /boards/1/edit

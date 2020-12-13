@@ -7,24 +7,20 @@
 var modalBtn = document.querySelector('.modal-btn');
 
 // リスト作成関数
-$(document).on("click", ".adder-list", function () {
-    // var num = Number($(this).text().replace("+add list", ""));
-    // if (num==NaN){
-    //     var num = Number($(this).text().replace("list", ""));
-    // };
-    // $(".btn-area").append(html);
-    var num = $('.list ').length;
-    var html = '<div class="list" id=list_'+(num + 1)+'><p>list' + (num + 1) + '</p><button class="add-btn adder-card" id="cardadd_'+(num + 1)+'">add card</button></div>';
-    $('.adder-list').before(html);
-});
+// $(document).on("click", ".adder-list", function () {
+//     // var num = Number($(this).text().replace("+add list", ""));
+//     // if (num==NaN){
+//     //     var num = Number($(this).text().replace("list", ""));
+//     // };
+//     // $(".btn-area").append(html);
+//     // var num = $('.list ').length;
+//     // var html = '<div class="list" id=list_'+(num + 1)+'><p>list' + (num + 1) + '</p><button class="add-btn adder-card" id="cardadd_'+(num + 1)+'">add card</button></div>';
+//     // var html = '<div class="list" id=list_'+(num + 1)+'><p>list' + (num + 1) + '</p><div id="board-modal"></div><%= link_to \'Add Card\', new_card_path, remote: true, class: "btn btn-lg, btn-primary add-btn adder-card" ,id: "cardadd_#{list_counter+1}"%>'
+//     $('.adder-list').before(html);
+// });
 
 // カード作成関数
 $(document).on("click", ".adder-card", function () {
-    // var num = Number($(this).text().replace("+add list", ""));
-    // if (num==NaN){
-    //     var num = Number($(this).text().replace("list", ""));
-    // };
-    // $(".btn-area").append(html);
     var card_id_num = Number($(this).attr('id').replace("cardadd_", ""));
     console.log(card_id_num);
     // var a = card_id.text().replace("cardadd_", "");
@@ -33,9 +29,9 @@ $(document).on("click", ".adder-card", function () {
     if (isNaN(num)){
         num = 0;
     };
-    // var html = '<div class="card" id="card_'+(num+1)+'" onclick="update_card(this.id)"><%= link_to "card' + (num + 1) + '", "/card/" %></div>';
     // var html = '<div class="card" id="card_'+(num+1)+'" onclick="update_card(this.id)"><a href="#">card' + (num + 1) + '</a></div>';
-    var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#" class="card-name" id ="card-name-'+(num+1)+'">card' + (num + 1) + '</a><button class="modal-btn" id ="button-id-'+(num+1)+'" onclick="show_modal(\'card-name-'+(num+1)+'\')">modal</button></div>';
+    var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#" class="card-name" id ="card-name-'+(num+1)+'">card' + (num + 1) + '</a><button class="modal-btn" id ="button-id-'+(num+1)+'" onclick="show_card_modal(\'card-name-'+(num+1)+'\')">Rename</button></div>';
+    // var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#" class="card-name" id ="card-name-'+(num+1)+'">a</a><input autofocus></input><button class="modal-btn" id ="button-id-'+(num+1)+'" onclick="show_card_modal(\'card-name-'+(num+1)+'\')">Rename</button></div>';    
     // var html = '<div class="card" id="card_'+(num+1)+'" ><a href="#" class="card-name" id ="card-name-'+(num+1)+' onclick="show_modal(card-name-'+(num+1)+')">card' + (num + 1) + '</a></div>';
     $('#cardadd_'+card_id_num).before(html);
 });
@@ -72,7 +68,7 @@ $(document).on('turbolinks:load', function() {
 //     modalBg.calssList.add('bg-active');
 // });
 
-function show_modal(b_id){
+function show_card_modal(b_id){
     // var thisid = $(b_id).siblings('.card-name').attr('id');
     console.log(b_id);
     var cardname = $('#'+b_id).html();
@@ -90,7 +86,7 @@ function show_modal(b_id){
 //     $('.card-name-modal').attr('id', thisid);
 // };
 
-function close_modal(){
+function close_card_modal(){
     $('.modal-bg').removeClass('bg-active');
     var change_id = $('.card-name-modal').attr('id');
     $('.card-name-modal').removeAttr('id', change_id);
@@ -105,5 +101,51 @@ function update_card_name(){
     var change_id = $('.card-name-modal').attr('id');
     $("#"+change_id).text(newname);
     
-    close_modal();
+    close_card_modal();
 };
+
+function show_board_modal(){
+    $('.modal-bg').addClass('bg-active');
+}
+
+function close_modal(){
+    $('.modal-bg').removeClass('bg-active');
+}
+
+
+//enter時に送信
+$('#card_name or #list_name').keypress(function(e){
+    if(e.which == 13){
+        $(this).closest('form').submit();
+    }
+});
+
+$('#card_name_form').click(function() {
+    var list_id = $(this).attr('id').replace("cardadd_", "");
+    $('#card_add_form').after('<%= form.hidden_field :list_id , value: '+list_id+', readonly: true %>');
+});
+
+function js_to_ruby(str1, str2, jsvar){
+    jsvar = "'"+jsvar+"'";
+    return "<% tmp="+jsvar+"%>";
+};
+
+$(document).on("click", ".adder-card", function(){
+    console.log("あああ");
+    var num = $(this).attr('id').replace("cardadd_", "");
+    var id = "#board-modal-"+num;
+    var id = "#board-modal";
+    console.log(id);
+    // $("'" +id+ "'").html("<%= escape_javascript(render 'form') %>");
+    // $("'" +id+ "'").modal("show");
+    // a('"'+id+'"');
+});
+
+// $(document).on("click", ".adder-list", function () {
+//     var num = $('.list').length;
+//     // js_to_ruby((num+1));
+//     var a_contents = `<a class="btn btn-lg btn-primary add-btn adder-card" id="cardadd_${num+1}" data-remote="true" href="/cards/new?id=${num+1}">Add Card</a>`;
+//     // console.log(a_contents);
+//     var html = '<div class="list" id=list_' +(num + 1)+ '><p><%= escape_javascript(render \'form\') %></p><div id="board-modal-' + (num + 1) + '"></div>'+a_contents;
+//     $('.adder-list').before(html);
+// });

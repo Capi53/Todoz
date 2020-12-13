@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :lists
+  resources :cards
   devise_for :users
   resources :boards
   # get 'users/new'
@@ -10,5 +12,13 @@ Rails.application.routes.draw do
   get '/user/:id' => 'users#show'
 
   #ボードのルーティング
-  get '/board/:id' => 'boards#show'
+  # get '/boards/index' => 'boards#index'
+
+  get '/boards/:id' => 'boards#show'
+
+  get '/boards/new/' => 'boards#new'
+
+  get '/cards/new' => 'cards#new'
+
+  get '/lists/new' => 'lists#new'
 end

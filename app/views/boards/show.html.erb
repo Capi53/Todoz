@@ -1,7 +1,8 @@
 <div class="board-item">
     <div class='board_yield_header header-item board-item'>
         <div class="header-item">
-            <h1>Boardsname</h1>
+            <!--<h1>Boardsname</h1>-->
+            <h1> <%= @board.name %> </h1>
             <input class="board-name-input" aria-label="Boardsname" value="Boardsname">
         </div>
         <div class="header-item">
@@ -15,12 +16,30 @@
             </button>
         </div>
     </div>
-    <p>Find me in app/views/users/new.html.erb</p>
-    <p>your email:<%= @user.email %></p>
+    <!--<p>Find me in app/views/users/new.html.erb</p>-->
+    <!--<p>your email:%<= @user.email %></p>-->
+    <!--<p>your id:<%= @user.name %> </p>-->
     <div class="lists board-item">
         <div class="list_adder lists-area">
-            <button class="add-btn adder-list">+add list1</button>
-            <= render 'boards/modal' %>
+            <% list_counter=0 %>
+            <% card_counter=0 %>
+            <% @lists.each do |list| %>
+                <div class="list" id="list_<%= list_counter+1 %>"><p><%= list.name %></p>
+                    <% @cards.each do |card| %>
+                        <% if card.list_id == list_counter+1 %>
+                            <div class="card" id="card_<%= card_counter+1 %>" ><a href="#" class="card-name" id ="card-name-<%= card_counter+1 %>"> <%= card.name %> </a><button class="modal-btn" id ="button-id-<%= card_counter +1 %>" onclick="show_card_modal('card-name-<%= card_counter+1 %>')">Rename</button></div>
+                            <% card_counter += 1%>
+                        <% end %>
+                    <% end %>
+                    <!--<button class="add-btn adder-card" id="cardadd_<%= list_counter+1 %>">add card</button></div>-->
+                    <div id="board-modal-<%= list_counter+1 %>">
+                    </div>
+                    <%= link_to 'Add Card', new_card_path(id: "#{list_counter+1}"), remote: true, class: "btn btn-lg btn-primary add-btn adder-card" ,id: "cardadd_#{list_counter+1}"%>
+                </div>
+                <% list_counter += 1%>
+            <% end %>
+            <!-- <button class="add-btn adder-list">+add list1</button> -->
+            <%= link_to 'Add List', new_list_path(id: "#{@board.id}"), remote: true, class: "add-btn adder-list" %>
         </div>
     </div>
     <div class="modal-bg">
@@ -29,7 +48,7 @@
             <label for="card_name">Name: </label>
             <input type="text" id="new_card_name" placeholder="new card name">
             <button onclick="update_card_name() ">Sub</button>
-            <span class="modal-close" onclick="close_modal()"> X </span>
+            <span class="modal-close" onclick="close_card_modal()"> X </span>
         </div>
     </div>
 </div>

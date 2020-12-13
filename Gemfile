@@ -69,3 +69,5 @@ gem 'jquery-rails'
 
 #add bootstrap for modal
 gem 'bootstrap-sass'
+
+gem 'bootstrap', '~> 4.1.1'
