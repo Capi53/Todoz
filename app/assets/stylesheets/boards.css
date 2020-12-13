@@ -183,3 +183,9 @@ input {
     color         : #000066;     /* 背景色     */
     background    : #ffffff;     /* 文字色     */
 }
+
+.icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}

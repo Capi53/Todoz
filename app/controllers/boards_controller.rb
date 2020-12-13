@@ -8,6 +8,7 @@ class BoardsController < ApplicationController
   def index
     @boards = Board.all
     @board = Board.new
+    @user = User.all
   end
 
   # GET /boards/1

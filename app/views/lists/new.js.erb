@@ -1,0 +1,9 @@
+var num = $('.list').length; 
+var a_contents = `<a class="btn btn-lg btn-primary add-btn adder-card" id="cardadd_${num+1}" data-remote="true" href="/cards/new?id=${num+1}">Add Card</a>`;
+console.log("あああ");
+var html = `<div class="list" id="list_<%=@param_id%>"><p><%= escape_javascript(render "form") %></p><div id="board-modal-${num+1}"></div>`+a_contents;
+$('.adder-list').before(html);
+
+$(`"#list_${num+1}"`).html("<p><%= escape_javascript(render 'form') %></p><div id='board-modal-" + (num + 1) + "'></div>"+a_contents);
+$(`"#list_${num+1}"`).modal("show");
+console.log("<%=@param_id%>");
