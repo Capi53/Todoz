@@ -15,6 +15,7 @@
       <tr>
         <td><%= link_to board.id, board_path(board.id) %></td>
         <td><%= link_to board.name, board_path(board.id) %></td>
+        <td><%= @user.find(board.created_by).name %> </td>
       </tr>
     <% end %>
   </tbody>

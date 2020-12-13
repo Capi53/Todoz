@@ -16,14 +16,14 @@
                 <div>
                     <button class="to_menu">
                         <span class="menu_icon">
-                            メニューアイコン
+                        <%= image_tag 'menu.png' , :class => 'icon'%>
                         </span>
                     </button>
                 </div>
-                <a aria-label="back to home" href="/">homeのicon</a>
+                <a aria-label="back to home" href="/"><%= image_tag 'Home.png' , :class => 'icon'%></a>
                 <button class="to_boards">
                     <span class="boards_icon">
-                        ボードアイコン
+                        <%= image_tag 'Board.png' , :class => 'icon'%>
                     </span>
                     <span>
                         Boards
@@ -35,16 +35,16 @@
             </div>
             <div class="header_right">
                 <button class="ereate_button">
-                    [+icon]
+                    <%= image_tag 'add.svg' , :class => 'icon'%>
                 </button>
                 <button class="update_info_button">
-                    [(i)icon]
+                    <%= image_tag 'info.png' , :class => 'icon'%>
                 </button>
                 <button class="notification_button">
-                    [bell icon]
+                    <%= image_tag 'bell.png' , :class => 'icon'%>
                 </button>
                 <button class="user_info_button">
-                <%= image_tag 'Todoz.png' , :class => 'user_icon'%>
+                <%= image_tag 'Todoz.png' , :class => 'user_icon icon'%>
                 </button>                                                
             </div>
         </div>
