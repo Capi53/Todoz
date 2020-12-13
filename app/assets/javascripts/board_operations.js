@@ -13,9 +13,9 @@ var modalBtn = document.querySelector('.modal-btn');
 //     //     var num = Number($(this).text().replace("list", ""));
 //     // };
 //     // $(".btn-area").append(html);
-//     var num = $('.list ').length;
+//     // var num = $('.list ').length;
 //     // var html = '<div class="list" id=list_'+(num + 1)+'><p>list' + (num + 1) + '</p><button class="add-btn adder-card" id="cardadd_'+(num + 1)+'">add card</button></div>';
-//     var html = '<div class="list" id=list_'+(num + 1)+'><p>list' + (num + 1) + '</p><div id="board-modal"></div><%= link_to \'Add Card\', new_card_path, remote: true, class: "btn btn-lg, btn-primary add-btn adder-card" ,id: "cardadd_#{list_counter+1}"%>'
+//     // var html = '<div class="list" id=list_'+(num + 1)+'><p>list' + (num + 1) + '</p><div id="board-modal"></div><%= link_to \'Add Card\', new_card_path, remote: true, class: "btn btn-lg, btn-primary add-btn adder-card" ,id: "cardadd_#{list_counter+1}"%>'
 //     $('.adder-list').before(html);
 // });
 
@@ -114,7 +114,7 @@ function close_modal(){
 
 
 //enter時に送信
-$('#card_name').keypress(function(e){
+$('#card_name or #list_name').keypress(function(e){
     if(e.which == 13){
         $(this).closest('form').submit();
     }
@@ -141,11 +141,11 @@ $(document).on("click", ".adder-card", function(){
     // a('"'+id+'"');
 });
 
-$(document).on("click", ".adder-list", function () {
-    var num = $('.list').length;
-    // js_to_ruby((num+1));
-    var a_contents = `<a class="btn btn-lg btn-primary add-btn adder-card" id="cardadd_${num+1}" data-remote="true" href="/cards/new?id=${num+1}">Add Card</a>`;
-    // console.log(a_contents);
-    var html = '<div class="list" id=list_' +(num + 1)+ '><p>list' + (num + 1) + '</p><div id="board-modal-' + (num + 1) + '"></div>'+a_contents;
-    $('.adder-list').before(html);
-});
+// $(document).on("click", ".adder-list", function () {
+//     var num = $('.list').length;
+//     // js_to_ruby((num+1));
+//     var a_contents = `<a class="btn btn-lg btn-primary add-btn adder-card" id="cardadd_${num+1}" data-remote="true" href="/cards/new?id=${num+1}">Add Card</a>`;
+//     // console.log(a_contents);
+//     var html = '<div class="list" id=list_' +(num + 1)+ '><p><%= escape_javascript(render \'form\') %></p><div id="board-modal-' + (num + 1) + '"></div>'+a_contents;
+//     $('.adder-list').before(html);
+// });

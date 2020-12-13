@@ -18,7 +18,7 @@ class CardsController < ApplicationController
     @card = Card.new
     @user = current_user
     # @list = List.find()
-    @card.created_by = @user
+    @card.created_by = @user.id
     @param_id = params[:id]
   end
 

@@ -32,13 +32,14 @@
                         <% end %>
                     <% end %>
                     <!--<button class="add-btn adder-card" id="cardadd_<%= list_counter+1 %>">add card</button></div>-->
-                    <div id="board-modal-1">
+                    <div id="board-modal-<%= list_counter+1 %>">
                     </div>
                     <%= link_to 'Add Card', new_card_path(id: "#{list_counter+1}"), remote: true, class: "btn btn-lg btn-primary add-btn adder-card" ,id: "cardadd_#{list_counter+1}"%>
                 </div>
                 <% list_counter += 1%>
             <% end %>
-            <button class="add-btn adder-list">+add list1</button>
+            <!-- <button class="add-btn adder-list">+add list1</button> -->
+            <%= link_to 'Add List', new_list_path(id: "#{@board.id}"), remote: true, class: "add-btn adder-list" %>
         </div>
     </div>
     <div class="modal-bg">

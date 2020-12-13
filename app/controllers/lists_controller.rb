@@ -14,7 +14,10 @@ class ListsController < ApplicationController
 
   # GET /lists/new
   def new
+    session[:return_to] ||= request.referer
     @list = List.new
+    @list.created_by = current_user.id
+    @param_id = params[:id]
   end
 
   # GET /lists/1/edit
@@ -26,15 +29,19 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
 
-    respond_to do |format|
-      if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
-        format.json { render :show, status: :created, location: @list }
-      else
-        format.html { render :new }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+    if @list.save
+      redirect_to session.delete(:return_to)
     end
+
+    # respond_to do |format|
+    #   if @list.save
+    #     format.html { redirect_to @list, notice: 'List was successfully created.' }
+    #     format.json { render :show, status: :created, location: @list }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @list.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /lists/1

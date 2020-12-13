@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   #ボードのルーティング
   # get '/boards/index' => 'boards#index'
 
-  get '/boards/detail/:id' => 'boards#show'
+  get '/boards/:id' => 'boards#show'
 
   get '/boards/new/' => 'boards#new'
 
-  get '/cards/new/:id' => 'cards#new'
+  get '/cards/new' => 'cards#new'
+
+  get '/lists/new' => 'lists#new'
 end
