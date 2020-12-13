@@ -1,1 +1,1 @@
-web: /bin/Todoz
+web: /bin/todoz-app
