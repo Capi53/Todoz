@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Boards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @boards.each do |board| %>
+      <tr>
+        <td><%= link_to board.id, board_path(board.id) %></td>
+        <td><%= link_to board.name, board_path(board.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!--<%= link_to 'New Board', new_board_path %>-->
+<%= link_to 'New Board', new_board_path, remote: true, class: "btn btn-lg, btn-primary" %>
+<div id="board-modal">
+</div>
+

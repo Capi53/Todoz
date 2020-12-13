@@ -1,0 +1,185 @@
+header {
+    width: 100%;
+    float: left;
+    display: inline;
+    background-color: antiquewhite;
+}
+
+.header {
+    width: 100%;
+    margin: 0;
+    float: left;
+    display: flex;
+    background-color: antiquewhite;
+}
+
+.header_left {
+    padding:0 30% 0 0;
+    text-align: center;
+    float: left;
+    display: flex;
+}
+
+.header_right {
+    padding:0 0 0 30%;
+    float: left;
+    display: flex;
+}
+
+.header_center {
+    padding: 0;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+body {
+    background-color: azure;
+    /* display: block; */
+}
+
+.user_info_button {
+    size: 10px;
+}
+
+.user_icon {
+    width: 60%;
+    height: auto;
+    border-radius: 100%;
+}
+
+.parent a{
+    position: absolute; /* ② */
+    top: 0; /* ③ */
+    left: 0; /* ④ */
+    width: 100%; /* ⑤ */
+    height: 100%; /* ⑥ */
+}
+
+.lists-area {
+    display: flex;
+}
+
+.lists {
+    /* display: flex; */
+    display: block;
+    /* margin:10px; */
+    /* float: left; */
+}
+
+.list {
+    width: 150px;
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border: 1px solid #333333;
+}
+
+.card {
+    width: 130px;
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border: 1px solid #333333;
+}
+
+.board_yield_header {
+    /* display:flex; */
+    /* float: left; */
+    /* display: inline-block; */
+    /* display: block; */
+
+}
+
+.header-item {
+    display: flex;
+    float: left;
+    width:auto;
+    margin:1%;
+}
+
+.board-item {
+    /* display:block; */
+    float: left;
+}
+
+/* .card a {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    opacity: 0.5;
+} */
+
+/* modal */
+.modal-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background-color: rgb(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center; /* アイテムを中央に持ってくる */
+    visibility: hidden;
+    opacity: 0;
+    translate: visiblity 0s opcity 0.3s;
+}
+
+.modal {
+    position: relative;
+    background-color: white;
+    width:45%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* 要素縦並び */
+}
+
+.bg-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal button{
+    margin: 10px;
+    padding: 10px 30px;
+    background-color: rgb(0,140,230);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input {
+    width:100%;
+}
+
+.btn {
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 10pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 12px;   /* 余白       */
+    background    : #9494f8;     /* 背景色     */
+    color         : #f3dcdc;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    /* box-shadow    : 6px 6px 3px #e9dcdc;  影の設定 */
+    /* border        : 2px solid #000066;    枠の指定 */
+}
+.button:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #000066;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+}

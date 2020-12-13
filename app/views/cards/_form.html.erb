@@ -1,0 +1,19 @@
+<%= form_with(model: @card, local: true, url: "/cards", method: "post") do |form| %>
+  <% if @card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@card.errors.count, "error") %> prohibited this board from being saved:</h2>
+
+      <ul>
+      <% @card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field card" >
+    <%= form.label :name  %>
+    <%= form.text_field :name ,id: "card_name_form" %>
+    <%= form.hidden_field :list_id , :value => @param_id, readonly: true %>
+    </div>
+  </div>
+<% end %>
