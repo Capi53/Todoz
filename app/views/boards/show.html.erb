@@ -26,15 +26,15 @@
             <% @lists.each do |list| %>
                 <div class="list" id="list_<%= list_counter+1 %>"><p><%= list.name %></p>
                     <% @cards.each do |card| %>
-                        <% if card.list_id == list_counter+1 %>
+                        <% if card.list_id == list.id %>
                             <div class="card" id="card_<%= card_counter+1 %>" ><a href="#" class="card-name" id ="card-name-<%= card_counter+1 %>"> <%= card.name %> </a><button class="modal-btn" id ="button-id-<%= card_counter +1 %>" onclick="show_card_modal('card-name-<%= card_counter+1 %>')">Rename</button></div>
                             <% card_counter += 1%>
                         <% end %>
                     <% end %>
                     <!--<button class="add-btn adder-card" id="cardadd_<%= list_counter+1 %>">add card</button></div>-->
-                    <div id="board-modal-<%= list_counter+1 %>">
+                    <div id="board-modal-<%= list.id %>">
                     </div>
-                    <%= link_to 'Add Card', new_card_path(id: "#{list_counter+1}"), remote: true, class: "btn btn-lg btn-primary add-btn adder-card" ,id: "cardadd_#{list_counter+1}"%>
+                    <%= link_to 'Add Card', new_card_path(id: "#{list.id}"), remote: true, class: "btn btn-lg btn-primary add-btn adder-card" ,id: "cardadd_#{list_counter+1}"%>
                 </div>
                 <% list_counter += 1%>
             <% end %>
